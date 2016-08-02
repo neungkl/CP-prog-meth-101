@@ -3,7 +3,7 @@
 public class Car {
 	
 	/*
-	 * You can fully any change you need
+	 * You can change any code in this class 
 	 */
 	
 	public Car() {}
