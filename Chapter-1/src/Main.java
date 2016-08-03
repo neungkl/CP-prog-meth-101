@@ -3,17 +3,30 @@ import java.util.ArrayList;
 public class Main {
 	
 	int findMaxValue(int[] data) {
-		// Write code here
-		return 0;
+		int m = -1;
+		
+		for(int i=0; i<data.length; i++) {
+			if(data[i] > m) m = data[i];
+		}
+		return m;
 	}
 	
 	ArrayList<Integer> cleanOdd(ArrayList<Integer> data) {
-		// Write code here
-		return new ArrayList<Integer>();
+		ArrayList<Integer> cl = new ArrayList<Integer>();
+		for(int i=0; i<data.size(); i++) {
+			if(data.get(i) % 2 == 0) cl.add(data.get(i));
+		}
+		return cl;
 	}
 	
 	int goneNumber(int[] data) {
-		// Write code here
+		int check = 0;
+		
+		for(int i=0; i<data.length; i++) {
+			if(check != data[i]) return check;
+			check++;
+		}
+		
 		return 0;
 	}
 	
