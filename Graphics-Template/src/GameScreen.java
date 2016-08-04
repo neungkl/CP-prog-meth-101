@@ -55,6 +55,8 @@ public class GameScreen extends JComponent {
 		
 		Graphics2D g2d = (Graphics2D) g;
 		
+		// draw red circle
+		
 		g2d.setColor(Color.RED);
 		
 		circle.update();
@@ -68,6 +70,9 @@ public class GameScreen extends JComponent {
 		}
 		
 		for(int i=0; i<enemys.size(); i++) {
+			
+			// blue circle
+			
 			g2d.setColor(Color.BLUE);
 			
 			g2d.fillOval(
@@ -78,6 +83,21 @@ public class GameScreen extends JComponent {
 			);
 			
 			enemys.get(i).update();
+		}
+		
+		for(int i=0; i<enemys.size(); i++) {
+			
+			float x1 = circle.getX() + 50;
+			float y1 = 600 - 140 + 50;
+			float r1 = 50;
+			
+			float x2 = enemys.get(i).getX() + 25;
+			float y2 = enemys.get(i).getY() + 25;
+			float r2 = 25;
+			
+			if(Math.sqrt((x1 - x2)*(x1 - x2) + (y1 - y2)*(y1 - y2)) < r1 + r2) {
+				System.out.println("DIEEEEEEEE");
+			}
 		}
 	}
 }
