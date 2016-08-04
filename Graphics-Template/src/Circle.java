@@ -9,12 +9,12 @@ public class Circle {
 	}
 	
 	public void moveLeft() {
-		x -= 5;
+		x -= 10;
 		if(x < 0) x = 600 - 100;
 	}
 	
 	public void moveRight() {
-		x += 5;
+		x += 10;
 		if(x > 600) x = 0;
 	}
 	

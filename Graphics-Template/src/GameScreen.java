@@ -1,11 +1,11 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.RenderingHints.Key;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JComponent;
@@ -14,6 +14,9 @@ public class GameScreen extends JComponent {
 	
 	private BufferedImage OImg;
 	private Circle circle;
+	private ArrayList<Enemy> enemys;
+	
+	private int counter;
 	
 	public GameScreen() {
 		try {
@@ -42,6 +45,8 @@ public class GameScreen extends JComponent {
 		});
 		
 		circle = new Circle();
+		counter = 0;
+		enemys = new ArrayList<Enemy>();
 	}
 	
 	@Override
@@ -55,9 +60,24 @@ public class GameScreen extends JComponent {
 		circle.update();
 		g2d.fillOval(circle.getX(), 600 - 140, 100, 100);
 		
-		//g2d.setColor(Color.WHITE);
-		//g2d.fillRect(0, 0, 600, 600);
+		if(counter > 55) {
+			enemys.add(new Enemy());
+			counter = 0;
+		} else {
+			counter++;
+		}
 		
-		//g2d.drawImage(OImg, 250, 250, 100, 100, null);
+		for(int i=0; i<enemys.size(); i++) {
+			g2d.setColor(Color.BLUE);
+			
+			g2d.fillOval(
+				enemys.get(i).getX(),
+				enemys.get(i).getY(),
+				50,
+				50
+			);
+			
+			enemys.get(i).update();
+		}
 	}
 }
